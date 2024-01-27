@@ -1,0 +1,42 @@
+.container {
+   
+    border: 1px solid var(--color-primary);
+    margin: 1rem auto;
+    border-radius: 0.5rem;
+    max-width: 50rem;
+    padding-top: 1rem;
+
+}
+
+.textDisplay {
+    margin: 1rem auto;
+  
+    border-radius: 0.25rem;
+    padding: 1rem;
+    max-width: 90%;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+
+.formField {
+    margin: 1rem;
+}
+
+.formField input {
+    padding: 1rem;
+    width: 70%;
+ 
+    border: 1px solid var(--color-primary);
+    border-radius: 0.25rem;
+    font-size: 1.1rem;
+    margin: 1rem
+}
+
+.correct {
+    color: #00ff2b;
+}
+
+.wrong {
+    color: red;
+}
