@@ -2,6 +2,8 @@ import React from 'react'
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios"
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 const EndpointAPI = "https://api.quotable.io/random"
 
@@ -111,10 +113,26 @@ function TextGenerator({getParagraph, textImported, setTextImported}) {
         setTextImported(true)
       }
 
+      useEffect(() => {
+      sendDataUp ()
+      
+      }, [])
+      
+
 
   return (
     <div className={textImported && "hidden"}>
-    <button onClick={sendDataUp} className="text-black">GENERATE</button>
+       <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'center', // Center horizontally
+          alignItems: 'center',     // Center vertically
+          padding: '20px',          // Add padding
+        }}
+      >
+        <CircularProgress sx={{ color: 'white' }} />
+      </Box>
+    <button className="text-black">GENERATING...</button>
     </div>
   )
 }

@@ -41,10 +41,19 @@ useEffect(()=>{
 return (
   <>
     <div className="bg-gradient-to-b from-blue-300 to-blue-500 h-screen flex flex-col items-center justify-center relative">
+
+
+      
       <img src="/images/unnamed.png" alt="Image1" className="absolute top-10 left-10 w-40 h-40 object-cover"/>
-      <img src="/images/gentleman.svg" alt="Image1" className="absolute bottom-20 left-20 ml-20 w-60 h-60 object-cover"/>
-      <img src="/images/lady.svg" alt="Image2" className="absolute top-40 right-20 mr-20 w-20 h-30 object-cover"/>
+      <img src="/images/gentleman.svg" alt="Image1" className="absolute bottom-20 left-0 ml-10 w-60 h-60 object-cover"/>
+      <img src="/images/lady.svg" alt="Image2" className="absolute top-10 right-20 mr-10 w-20 h-30 object-cover"/>
       <img src="/images/jpk.png" alt="Image2" className="absolute bottom-10 right-10 w-40 h-40 object-cover"/>
+
+
+
+
+
+
       <h1 className="">Check your typing skills</h1>
       <div className="flex h-screen items-center justify-center">
 
