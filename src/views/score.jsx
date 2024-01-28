@@ -26,16 +26,18 @@ useEffect (() =>{
           'Access-Control-Allow-Origin': '*',  // Adjust this based on your security requirements
         },
       });
-      setScores(response.data);
+      const sortedScores = [...scores].sort((a, b) => b.score - a.score);
+      setScores(sortedScores);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
-  console.log(scores);
+
   fetchData();
+
+  console.log(scores);
+
 },[])
-
-
 
 
 
@@ -61,20 +63,14 @@ useEffect (() =>{
           <tbody>
          
          {scores.map((scores) => (
-          <tr>
-            <td key={scores.id} className="border-2 border-black p-2 ">{scores.score}</td>
-           <td key={scores.id} className="border-2  border-black p-2">{new Date(scores.date).toLocaleString()}</td>
+           <tr key={scores.id}>
+            <td className="border-2 border-black p-2 ">{scores.score}</td>
+           <td className="border-2  border-black p-2">{new Date(scores.date).toLocaleString()}</td>
         </tr>
          ))
-             
-
-
 }
           </tbody>
         </table>
-    
-
-
       </div>
     </div>
     </body>
