@@ -25,10 +25,12 @@ app.post('/api/data', async (req, res) => {
 
   console.log('Request Body:', req.body);
   try {
-    const { score} = req.body;
+    const { score,difficulty} = req.body;
+
     const createdData = await prisma.score.create({
       data: {
         score,
+        difficulty,
       },
     });
     res.status(201).json(createdData);

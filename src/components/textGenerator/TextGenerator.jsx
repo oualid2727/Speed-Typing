@@ -1,9 +1,11 @@
 import React from 'react'
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext  } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios"
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+import GlobalContext from "../Context/GlobalContext"
+
 
 const EndpointAPI = "https://api.quotable.io/random"
 
@@ -11,6 +13,7 @@ function TextGenerator({getParagraph, textImported, setTextImported}) {
     const difficulty = useParams();
     const [displayText,setDisplayText] =  useState("");
 
+    const {num, updateNum}= useContext(GlobalContext);
 
 
     const shuffleString = (str) => {
@@ -117,6 +120,14 @@ function TextGenerator({getParagraph, textImported, setTextImported}) {
       sendDataUp ()
       
       }, [])
+
+      useEffect(()=>{
+        //console.log(num)
+        if (num == 2){
+          sendDataUp ()
+        }
+      
+      },[num])
       
 
 

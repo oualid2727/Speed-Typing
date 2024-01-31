@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'; 
+import { useParams } from "react-router-dom";
 
 
 import GlobalContext from '../Context/GlobalContext'
@@ -22,6 +23,7 @@ const style = {
   p: 4,
 };
 const Results = ({input, text, finished}) => {
+  const difficulty = useParams();
 
   const { isMultiplayer, updateIsMultiplayer,totalWordsP1, correctWordsP1, updateTotalWordsP1, updateCorrectWordsP1, num,
     updateNum, } = useContext(GlobalContext);
@@ -32,7 +34,7 @@ const Results = ({input, text, finished}) => {
 
   const [winner,setWinner] = useState("")
 
-
+console.log(typeof(difficulty.difficulty));
 
   const textArray = text.split(" ").slice (1)
   const inputArray = input.split (" ")
@@ -47,10 +49,11 @@ const Results = ({input, text, finished}) => {
 
 
   const sendDataToServer = async () => {
-    console.log('Sending data:', { score: correctWordsP1 });
+    const difficultyValue = difficulty.difficulty
+    console.log('Sending data:', { score: correctWordsP1, difficulty:difficultyValue  });
   
     try {
-      const response = await axios.post('http://localhost:3001/api/data', { score : correctWordsP1 });
+      const response = await axios.post('http://localhost:3001/api/data', { score : correctWordsP1, difficulty: difficultyValue });
       
       console.log(response.data);
     } catch (error) {
